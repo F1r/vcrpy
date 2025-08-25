@@ -1,5 +1,23 @@
+[project]
+name = "vcrpy"
+version = "6.0.2"
+description = "VCR.py: record and replay HTTP interactions"
+authors = [{name = "Your Name", email = "you@example.com"}]
+readme = "README.md"
+requires-python = ">=3.7"
+
+# 强制解决依赖冲突：
+# - 非 PyPy 使用 6.x-7.x 系列
+# - PyPy 使用 1.26.x 系列
+dependencies = [
+    "urllib3>=6.0,<8.0 ; platform_python_implementation != 'PyPy'",
+    "urllib3>=1.26.9,<2 ; platform_python_implementation == 'PyPy'",
+    "chardet>=3.0.2,<5.0",
+    "requests>=2.10.0,<3.0"
+]
+
 [tool.codespell]
-skip = '.git,*.pdf,*.svg,.tox'
+skip = ".git,*.pdf,*.svg,.tox"
 ignore-regex = "\\\\[fnrstv]"
 
 [tool.pytest.ini_options]
